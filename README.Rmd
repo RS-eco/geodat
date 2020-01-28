@@ -1,0 +1,58 @@
+---
+title: "geodat - R package for easy access to various geographical data"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, comment=NA, message=FALSE, fig.path="figures/")
+```
+
+## Install geodat package
+
+To *use* the package, it can be installed directly from GitHub using the `remotes` package. 
+
+```{r install_package, eval=FALSE}
+# Install packages from Github
+#install.packages("remotes")
+remotes::install_github("RS-eco/geodat")
+```
+
+After installation, load the package
+
+```{r geodat}
+library(geodat)
+```
+
+## Data 
+
+### Marine data
+
+```{r}
+# Exclusive economic zones
+data(eez)
+
+# Large marine ecosystems
+data(lme)
+
+# Marine realms
+data(marinerealms)
+
+# Maritime boundaries
+data(maritime_boundaries)
+
+# Marine ecoregions of the world
+data(meow)
+```
+
+### Terrestrial data
+
+```{r}
+# Biomes
+data(biomes)
+
+# Terrestrial ecoregions of the world
+data(teow)
+
+# Zoogeographic realms of the world
+data(zoorealms)
+```
