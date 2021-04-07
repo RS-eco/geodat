@@ -31,6 +31,16 @@ tmp <- tempfile(fileext=".zip")
 download.file("https://ndownloader.figshare.com/files/9737926", destfile=tmp)
 dat <- unzip(tmp)
 marinerealms <- sf::st_read(dat[grep(dat, pattern=".shp$")])
+marinerealms$ID <- cut(marinerealms$Realm, breaks=c(1,2,3,9,10,11,29,30,31), right=F,
+                       labels=c("Inner Baltic Sea", "Black Sea", "NE and NW Atlantic and \n Mediterranean, Arctic \n and North Pacific",
+                                "Mid-tropical North Pacific Ocean", "South-east Pacific", "Mid-Atlantic, Pacific \n and Indian Oceans",
+                                "North West Pacific", "Southern Ocean"))
+marinerealms$ID2 <- cut(marinerealms$Realm, breaks=c(1,2,3,6,8,9,10,11,13,17,18,24,26,29,30,31), right=F,
+                        labels=c("Inner Baltic Sea", "Black Sea", "NE and Atlantic and \n Mediterranean", "Arctic and N Pacific",
+                                 "N Atlantic boreal & \n sub Arctic", "Mid-tropical N Pacific Ocean", "South-east Pacific", 
+                                 "Tropical W Atlantic & \n Tropical E Pacific", "Coastal Indian Ocean, \n W Pacific, ...", 
+                                 "Mid South Tropical Pacific", "Open Atlantic, Indian & \n Pacific Oceans", "S South America", 
+                                 "S Africa, S Australia & \n New Zealand", "North West Pacific", "Southern Ocean"))
 save(marinerealms, file="data/marinerealms.rda", compress="xz")
 file.remove(dat); file.remove(tmp)
 
@@ -57,3 +67,4 @@ zoorealms <- sf::st_read(dat[grep(dat, pattern="newRealms.shp$")])
 #zoorealms_old <- sf::st_read(dat[grep(dat, pattern="realms.shp$")])
 save(zoorealms, file="data/zoorealms.rda", compress="xz")
 file.remove(dat); file.remove(tmp)
+
