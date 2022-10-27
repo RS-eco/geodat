@@ -1,0 +1,21 @@
+Package: geodat
+Type: Package
+Title: R package to access various geographic datasets
+Version: 0.0.1
+Date: 2022-10-26
+Authors@R: person("RS-eco", email = "rs-eco@posteo.de", role = c("cre", "aut"))
+Maintainer: RS-eco <rs-eco@posteo.de>
+Description: R package to access varios geographic datasets, such as eez, lme, marine realms, zoorealms, meow and teow.
+Depends: R (>= 3.5.0)
+Imports: sf
+Suggests: dplyr, ggplot2, knitr
+License: GPL (>= 3)
+LazyData: TRUE
+LazyDataCompression: xz
+VignetteBuilder: knitr
+RoxygenNote: 7.2.1
+Encoding: UTF-8
+NeedsCompilation: yes
+Author: RS-eco [cre, aut]
+URL: https://github.com/RS-eco/geodat
+BugReports: https://github.com/RS-eco/geodat/issues
